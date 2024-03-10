@@ -1,0 +1,13 @@
+<div class="loading">
+  <div class="loading_wrapper">
+
+    <div class="loading_wrapper_spinner">
+        @if(message) {
+          <h4 class="loading_message">{{message}}</h4>
+        }
+        <mat-spinner
+          [diameter]="50">
+        </mat-spinner>
+    </div>
+  </div>
+</div>
