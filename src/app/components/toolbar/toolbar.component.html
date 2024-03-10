@@ -1,0 +1,42 @@
+<mat-toolbar>
+
+  <button
+    mat-icon-button
+    [attr.aria-label]="'TOOLBAR.TITLE' | translate"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    @for(menuItem of menuItems(); track menuItem.path) {
+      <button
+        mat-menu-item
+        [routerLink]="menuItem.path">
+        {{ menuItem.label | translate}}
+      </button>
+    }
+  </mat-menu>
+
+  <span>{{'TOOLBAR.TITLE' | translate}}</span>
+  <span class="spacer"></span>
+
+  <button
+    color="primary"
+    mat-fab
+    extended
+    [attr.aria-label]="'TOOLBAR.LANGUAGE.TITLE' | translate"
+    [matMenuTriggerFor]="language"
+  >
+    <mat-icon>language</mat-icon>
+    {{'TOOLBAR.LANGUAGE.TITLE' | translate}}
+  </button>
+  <mat-menu #language="matMenu">
+    @for (language of languages(); track language.localeId) {
+      <button
+        mat-menu-item
+        (click)="onSelectLanguage(language.localeId)">
+        {{ language.label |translate }}
+      </button>
+    }
+  </mat-menu>
+</mat-toolbar>
