@@ -9,3 +9,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+/*********************************************
+*******Angular material update styles*********
+**********************************************/
+
+.mdc-snackbar.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    padding: 0;
+  }
+}
