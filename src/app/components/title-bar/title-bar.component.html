@@ -1,0 +1,13 @@
+<div class="title-bar">
+  @if(isVisibleReturn()) {
+    <button
+       mat-icon-button
+       color="primary"
+       aria-label="Example icon button with a home icon">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  }
+
+  <h2 class="mb-0 ml-2">{{title() | translate}}</h2>
+
+</div>
