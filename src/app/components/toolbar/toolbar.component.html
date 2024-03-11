@@ -2,7 +2,7 @@
 
   <button
     mat-icon-button
-    [attr.aria-label]="'TOOLBAR.TITLE' | translate"
+    [attr.aria-label]="'COMPONENTS.TOOLBAR.TITLE' | translate"
     [matMenuTriggerFor]="menu"
   >
     <mat-icon>menu</mat-icon>
@@ -17,18 +17,18 @@
     }
   </mat-menu>
 
-  <span>{{'TOOLBAR.TITLE' | translate}}</span>
+  <span>{{'COMPONENTS.TOOLBAR.TITLE' | translate}}</span>
   <span class="spacer"></span>
 
   <button
     color="primary"
     mat-fab
     extended
-    [attr.aria-label]="'TOOLBAR.LANGUAGE.TITLE' | translate"
+    [attr.aria-label]="'COMPONENTS.TOOLBAR.LANGUAGE.TITLE' | translate"
     [matMenuTriggerFor]="language"
   >
     <mat-icon>language</mat-icon>
-    {{'TOOLBAR.LANGUAGE.TITLE' | translate}}
+    {{'COMPONENTS.TOOLBAR.LANGUAGE.TITLE' | translate}}
   </button>
   <mat-menu #language="matMenu">
     @for (language of languages(); track language.localeId) {
