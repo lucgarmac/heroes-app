@@ -1,0 +1,31 @@
+:host {
+  display:block;
+  background-color: white;
+  padding:2em;
+  width: 40vw;
+  border-radius: .5em
+}
+
+@mixin flex-space-between {
+  display:flex;
+  justify-content: space-between;
+}
+
+.confirm-modal {
+  display:flex;
+  flex-direction: column;
+
+  &_header {
+   @include flex-space-between;
+   align-items: center;
+  }
+
+  &_body {
+
+  }
+
+  &_footer{
+    display:flex;
+    justify-content: flex-end;
+  }
+}

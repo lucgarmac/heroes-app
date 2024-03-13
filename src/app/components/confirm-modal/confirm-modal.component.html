@@ -1,0 +1,31 @@
+<div class="confirm-modal">
+  <div class="confirm-modal_header">
+    <h3>{{ title() }}</h3>
+    <button
+      mat-icon-button
+      color="primary"
+      aria-label="Example icon button with a home icon"
+      (click)="dialogRef.close()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="confirm-modal_body">
+    <p>{{ message() }}</p>
+  </div>
+  <div class="confirm-modal_footer">
+    <button
+      class="me-3"
+      mat-raised-button
+      (click)="dialogRef.close('close')">
+      {{ cancelText() }}
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="dialogRef.close('confirm')"
+    >
+      {{ confirmText() }}
+    </button>
+  </div>
+</div>

@@ -2,6 +2,8 @@
   <app-toolbar></app-toolbar>
   <section class="container">
     <app-title-bar></app-title-bar>
+    <button (click)="openDialog()">Open dialog</button>
+    {{responseDialog}}
     <router-outlet />
   </section>
   <app-footer></app-footer>
