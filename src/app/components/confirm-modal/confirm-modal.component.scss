@@ -15,13 +15,16 @@
   display:flex;
   flex-direction: column;
 
+
   &_header {
    @include flex-space-between;
    align-items: center;
+   align-content: center;
+   margin-bottom: 2em;
   }
 
   &_body {
-
+    margin-bottom: 3em;
   }
 
   &_footer{

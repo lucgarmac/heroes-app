@@ -1,36 +1,47 @@
 import { DIALOG_DATA, DialogModule, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject, OnInit, WritableSignal, signal } from '@angular/core';
-import { IConfirmModal } from './models/confirm-modal';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  OnInit,
+  Output,
+  WritableSignal,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { IConfirmModal } from './models/confirm-modal';
+import { IParams } from '../../models/params';
 
 @Component({
   selector: 'app-confirm-modal',
   standalone: true,
   imports: [DialogModule, MatButtonModule, MatIconModule, TranslateModule],
   templateUrl: './confirm-modal.component.html',
-  styleUrl: './confirm-modal.component.scss'
+  styleUrl: './confirm-modal.component.scss',
 })
-export class ConfirmModalComponent implements OnInit{
-
+export class ConfirmModalComponent implements OnInit {
   constructor(
-    private _translateService: TranslateService,
     public dialogRef: DialogRef<string>,
-    @Inject(DIALOG_DATA) public data: IConfirmModal,
-  ){}
+    @Inject(DIALOG_DATA) public data: IConfirmModal
+  ) {}
+
+  @Output() closeModal = new EventEmitter<void>();
 
   title: WritableSignal<string> = signal('');
   message: WritableSignal<string> = signal('');
+  messageParams: WritableSignal<IParams> = signal({});
   cancelText: WritableSignal<string> = signal('');
   confirmText: WritableSignal<string> = signal('');
 
-
   ngOnInit(): void {
-    const {title,message,cancelText,confirmText} = this.data;
+    const { title, message, messageParams, cancelText, confirmText } =
+      this.data;
     this.title.set(title ?? '');
     this.message.set(message ?? '');
-    this.cancelText.set(cancelText ?? this._translateService.instant('GENERAL.CANCEL'));
-    this.confirmText.set(confirmText ?? this._translateService.instant('GENERAL.CONFIRM'));
+    this.messageParams.set(messageParams ?? {});
+    this.cancelText.set(cancelText ?? 'GENERAL.CANCEL.TITLE');
+    this.confirmText.set(confirmText ?? 'GENERAL.CONFIRM');
   }
 }
