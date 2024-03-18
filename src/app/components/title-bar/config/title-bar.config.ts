@@ -19,6 +19,12 @@ export const routesMap: TitleBarUrl[] = [
   {
     id: 'heroes-detail',
     path: '/heroes/:id',
+    translateKey: 'HEROES.DETAIL.TITLE',
+    params: ['id']
+  },
+  {
+    id: 'heroes-edit',
+    path: '/heroes/:id/edit',
     translateKey: 'HEROES.EDIT.TITLE',
     params: ['id']
   },
@@ -30,6 +36,7 @@ export const routesMap: TitleBarUrl[] = [
 ];
 
 export const routesWithReturn = [
-  'heroes-create',
-  'heroes-detail',
+  {route:'heroes-create', return: 'heroes-search'},
+  {route:'heroes-detail', return: 'heroes-search'},
+  {route:'heroes-edit', return: 'heroes-search'},
 ];

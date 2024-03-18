@@ -1,3 +1,4 @@
+import { IParams } from './../../models/params';
 import { Component, OnDestroy, WritableSignal, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Subject, filter, map, takeUntil } from 'rxjs';
 import { routesMap, routesWithReturn } from './config/title-bar.config';
 import { TitleBarUrl } from './models/title-bar';
+import { TitleBarService } from './services/title-bar.service';
 
 @Component({
   selector: 'app-title-bar',
@@ -23,7 +25,8 @@ import { TitleBarUrl } from './models/title-bar';
 export class TitleBarComponent implements OnDestroy {
   constructor(
     private _router: Router,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _titleBarService: TitleBarService
   ) {
     this._router.events
       .pipe(
@@ -32,27 +35,54 @@ export class TitleBarComponent implements OnDestroy {
         map((e) => <NavigationEnd>e)
       )
       .subscribe((e: NavigationEnd) => {
-        this.isVisibleReturn.set(this._isUrlWithReturn(e.url,e.urlAfterRedirects));
-        this.title.set(this._getTitleKey(e.url,e.urlAfterRedirects));
-
+        this.isVisibleReturn.set(
+          this._isUrlWithReturn(e.url, e.urlAfterRedirects)
+        );
+        this.title.set(this._getTitleKey(e.url, e.urlAfterRedirects));
+        this.routeNavigate.set(
+          this._getRouteNavigate(e.url, e.urlAfterRedirects)
+        );
       });
-  }
 
+    this._titleBarService.paramsTitle$.subscribe((params) =>
+      this.paramsTitle.set(params)
+    );
+  }
 
   private readonly _stopObservables$ = new Subject<void>();
   private readonly _defaultKeyUrl = '';
 
   isVisibleReturn: WritableSignal<boolean> = signal(false);
   title: WritableSignal<string> = signal(this._defaultKeyUrl);
+  paramsTitle: WritableSignal<IParams> = signal({});
+  routeNavigate: WritableSignal<string> = signal('');
 
-  private _isUrlWithReturn(currentUrl: string, urlAfterRedirects: string): boolean {
-    const routeUrl = this._getRouteCurrentUrl(currentUrl,urlAfterRedirects);
-    return routeUrl ? routesWithReturn.includes(routeUrl.id) : false;
+  private _isUrlWithReturn(
+    currentUrl: string,
+    urlAfterRedirects: string
+  ): boolean {
+    const routeUrl = this._getRouteCurrentUrl(currentUrl, urlAfterRedirects);
+    return routeUrl
+      ? routesWithReturn.map((route) => route.route).includes(routeUrl.id)
+      : false;
   }
 
   private _getTitleKey(currentUrl: string, urlAfterRedirects: string): string {
-    const routeUrl = this._getRouteCurrentUrl(currentUrl,urlAfterRedirects);
+    const routeUrl = this._getRouteCurrentUrl(currentUrl, urlAfterRedirects);
     return routeUrl ? routeUrl.translateKey : this._defaultKeyUrl;
+  }
+
+  private _getRouteNavigate(
+    currentUrl: string,
+    urlAfterRedirects: string
+  ): string {
+    const routeUrl = this._getRouteCurrentUrl(currentUrl, urlAfterRedirects);
+    const idUrlReturn = routeUrl
+      ? routesWithReturn.find((item) => item.route === routeUrl.id)?.return
+      : '';
+    return idUrlReturn
+      ? routesMap.find((item) => item.id === idUrlReturn)?.path ?? ''
+      : '';
   }
 
   private _getParams(activatedRoute: ActivatedRoute): Params | null {
@@ -64,31 +94,36 @@ export class TitleBarComponent implements OnDestroy {
   }
 
   private _getUrlsWithParams(paramsDetected: Params | null): TitleBarUrl[] {
-    if(!paramsDetected) {
+    if (!paramsDetected) {
       return [];
     }
     return routesMap
-    .filter(
-      (route) =>
-        !!route.params?.length &&
-        route.params.every((param) =>
-          Object.keys(<object>paramsDetected).includes(param)
-        )
-    )
-    .map((item) => {
-      item.params?.forEach((param) =>
-        item.path = item.path.replace(`:${param}`, paramsDetected[param])
-      );
-      return item;
-    });
+      .filter(
+        (route) =>
+          !!route.params?.length &&
+          route.params.every((param) =>
+            Object.keys(<object>paramsDetected).includes(param)
+          )
+      )
+      .map((item) => {
+        item.params?.forEach(
+          (param) =>
+            (item.path = item.path.replace(`:${param}`, paramsDetected[param]))
+        );
+        return item;
+      });
   }
 
-  private _getRouteCurrentUrl(currentUrl: string, urlAfterRedirects: string): TitleBarUrl | null {
+  private _getRouteCurrentUrl(
+    currentUrl: string,
+    urlAfterRedirects: string
+  ): TitleBarUrl | null {
     const params = this._getParams(this._activatedRoute);
     const urlWithParams = this._getUrlsWithParams(params);
-    const urls = params && !!Object.keys(<object>params)?.length
-      ? urlWithParams
-      : routesMap;
+    const urls =
+      params && !!Object.keys(<object>params)?.length
+        ? urlWithParams
+        : routesMap;
 
     const urlFound = urls.find(
       (route) => route.path === currentUrl || route.path === urlAfterRedirects

@@ -3,11 +3,12 @@
     <button
        mat-icon-button
        color="primary"
-       aria-label="Example icon button with a home icon">
+       aria-label="Example icon button with a home icon"
+       [routerLink]="[routeNavigate()]">
       <mat-icon>chevron_left</mat-icon>
     </button>
   }
 
-  <h2 class="mb-0 ml-2">{{title() | translate}}</h2>
+  <h2 class="mb-0 ml-2">{{title() | translate: paramsTitle()}}</h2>
 
 </div>
