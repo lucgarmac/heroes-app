@@ -1,0 +1,80 @@
+<div class="heroe-appearance">
+  <form class="row" [formGroup]="form">
+    <mat-form-field class="col-12 col-md-4">
+      <mat-label>{{'HEROES.HEROE.APPEARANCE.GENDER' | translate}}</mat-label>
+      <mat-select
+        name="gender"
+        formControlName="gender">
+        @for (gender of genders; track gender.value) {
+          <mat-option [value]="gender.value">{{gender.label}}</mat-option>
+        }
+      </mat-select>
+      @if (form.controls.gender.invalid) {
+        <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-4">
+      <mat-label>{{'HEROES.HEROE.APPEARANCE.RACE' | translate}}</mat-label>
+      <mat-select
+        name="race"
+        formControlName="race">
+        @for (race of races; track race.value) {
+          <mat-option [value]="race.value">{{race.label}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.APPEARANCE.HEIGHT" | translate }}</mat-label>
+        <input
+          type="number"
+          name="height"
+          [min]="1"
+          formControlName="height"
+          matInput />
+        @if (form.controls.height.invalid) {
+          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.APPEARANCE.WEIGHT" | translate }}</mat-label>
+        <input
+          type="number"
+          name="weight"
+          [min]="1"
+          formControlName="weight"
+          matInput />
+        @if (form.controls.weight.invalid) {
+          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="col-12 col-md-4">
+      <mat-label>{{'HEROES.HEROE.APPEARANCE.EYE_COLOR' | translate}}</mat-label>
+      <mat-select
+        name="eyeColor"
+        formControlName="eyeColor">
+        @for (eyeColor of eyesColors; track eyeColor.value) {
+          <mat-option [value]="eyeColor.value">{{eyeColor.label}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-12 col-md-4">
+      <mat-label>{{'HEROES.HEROE.APPEARANCE.HAIR_COLOR' | translate}}</mat-label>
+      <mat-select
+        name="hairColor"
+        formControlName="hairColor">
+        @for (hairColor of hairColors; track hairColor.value) {
+          <mat-option [value]="hairColor.value">{{hairColor.label}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>

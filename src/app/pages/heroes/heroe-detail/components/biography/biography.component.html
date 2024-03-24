@@ -1,0 +1,138 @@
+<div class="heroe-bio">
+  <form class="row" [formGroup]="form">
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.BIO.FULL_NAME" | translate }}</mat-label>
+        <input
+          type="text"
+          name="fullName"
+          formControlName="fullName"
+          matInput />
+        @if (form.controls.fullName.invalid) {
+          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.BIO.ALTER_EGOS" | translate }}</mat-label>
+        <input
+          type="text"
+          name="alterEgos"
+          formControlName="alterEgos"
+          matInput />
+        @if (form.controls.alterEgos.invalid) {
+          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.BIO.PLACE_BIRTH" | translate }}</mat-label>
+        <input
+          type="text"
+          name="placeOfBirth"
+          formControlName="placeOfBirth"
+          matInput />
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.BIO.FIRST_APPEARANCE" | translate }}</mat-label>
+        <input
+          type="text"
+          name="firstAppearance"
+          formControlName="firstAppearance"
+          matInput />
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.BIO.PUBLISHER" | translate }}</mat-label>
+        <input
+          type="text"
+          name="publisher"
+          formControlName="publisher"
+          matInput />
+        @if (form.controls.publisher.invalid) {
+          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>{{ "HEROES.HEROE.BIO.ALIGNMENT" | translate }}</mat-label>
+        <input
+          type="text"
+          name="alignment"
+          formControlName="alignment"
+          matInput />
+        @if (form.controls.alignment.invalid) {
+          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      @if(formMode !== formModeEnum.DETAIL) {
+        <div class="row d-flex flex-column flex-md-row">
+          <div class="col-12 col-md-7">
+            <mat-form-field class="w-100">
+              <mat-label>{{ "HEROES.HEROE.BIO.ALIASES.FIELD" | translate }}</mat-label>
+              <input
+                [maxlength]="50"
+                name="aliasInput"
+                [(ngModel)]="aliasInput"
+                [ngModelOptions]="{standalone: true}"
+                matInput />
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-md-2 d-flex">
+            <button class="w-100"
+              [disabled]="!aliasInput?.length"
+              type="button"
+              mat-raised-button
+              [attr.aria-label]="'GENERAL.ADD.LABEL' | translate"
+              (click)="onAddAlias()"
+            >
+              <mat-icon>add</mat-icon>
+              {{'GENERAL.ADD.TITLE' | translate}}
+            </button>
+          </div>
+        </div>
+      }
+
+      @if(aliasItems.length) {
+        <mat-list class="my-4" formArrayName="aliases">
+          <h3 matListItemTitle>{{'HEROES.HEROE.BIO.ALIASES.TITLE' | translate}}</h3>
+          <ng-container *ngFor="let alias of aliasItems.controls; let i = index">
+            <mat-list-item [formGroup]="alias">
+              <div class="row d-flex align-items-center justify-content-start">
+                <p class="col-7 mb-0 me-4">{{alias.controls.item.value}}</p>
+                @if(formMode !== formModeEnum.DETAIL) {
+                  <button class="col-2"
+                    type="button"
+                    mat-icon-button
+                    matTooltipPosition="above"
+                    [matTooltip]="'GENERAL.REMOVE.TITLE' | translate"
+                    [attr.aria-label]="'GENERAL.REMOVE.LABEL' | translate"
+                    (click)="onRemoveAlias(i)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                }
+              </div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      }
+    </div>
+
+  </form>
+</div>

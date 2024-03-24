@@ -1,0 +1,33 @@
+<div class="heroe-powerstats">
+  <div class="row" [formGroup]="form">
+      <ng-container *ngFor="let powerstatName of powerstatNames; let i = index">
+        <div class="d-flex flex-column col-12 col-md-4 mb-4">
+          <div class="labels d-flex justify-content-between">
+            <label [for]="powerstatName">{{
+              "HEROES.HEROE.POWERSTATS.".concat(powerstatName.toUpperCase())
+                | translate
+            }}</label>
+            <span class="justify-content-end">{{
+              form.controls[powerstatName].value
+            }}</span>
+          </div>
+          @if(formMode === formModeEnum.DETAIL) {
+            <mat-progress-bar
+              mode="determinate"
+              [value]="form.controls[powerstatName].value"
+            >
+            </mat-progress-bar>
+          }@else {
+            <mat-slider min="0" max="100" step="1">
+              <input
+                [id]="powerstatName"
+                [name]="powerstatName"
+                [formControlName]="powerstatName"
+                matSliderThumb
+              />
+            </mat-slider>
+          }
+        </div>
+      </ng-container>
+  </div>
+</div>
