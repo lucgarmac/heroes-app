@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-loading',
   standalone: true,
-  imports: [MatProgressSpinnerModule],
+  imports: [TranslateModule, MatProgressSpinnerModule],
   templateUrl: './loading.component.html',
-  styleUrl: './loading.component.scss'
+  styleUrl: './loading.component.scss',
 })
 export class LoadingComponent {
-  @Input() message: string = 'Cargando';
+  @Input() messageKey: string = '';
 }

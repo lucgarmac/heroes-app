@@ -1,6 +1,12 @@
 export enum ENotificationType {
   SUCCESS = 'success',
-  ERROR = 'error',
-  ALERT = 'alert',
+  ERROR = 'danger',
+  ALERT = 'warning',
   INFO = 'info',
+}
+
+export interface INotification {
+  messageKey: string;
+  type: ENotificationType;
+  closeInMillis?:number;
 }

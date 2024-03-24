@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ENotificationType } from '../models/notification';
 import { NotificationComponent } from '../notification.component';
+import { INotification } from '../models/notification';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(
+    private _snackBar: MatSnackBar,
+    private _translateService: TranslateService) { }
 
-  showNotification(message: string, type: ENotificationType, closeInMillis?: number) {
+  show(config: INotification) {
+    const {messageKey: message, type, closeInMillis} = config;
     const options = {
       duration: closeInMillis ?? undefined,
       data: {
-        message,
+        message:this._translateService.instant(message),
         type
       }
     };

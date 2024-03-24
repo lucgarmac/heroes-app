@@ -12,9 +12,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, forkJoin, takeUntil } from 'rxjs';
+import { TitleService } from '../../services/title.service';
 import { Language, MenuItem } from './models/toolbar';
 import { ToolbarService } from './services/toolbar.service';
 
@@ -39,7 +40,9 @@ import { ToolbarService } from './services/toolbar.service';
 export class ToolbarComponent implements OnInit, OnDestroy {
   constructor(
     private _toolbarService: ToolbarService,
-    private _translateService: TranslateService
+    private _translateService: TranslateService,
+    private _titleService: TitleService,
+    private _router: Router
   ) {}
 
   private _stopObservables$ = new Subject<void>();
@@ -61,6 +64,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   onSelectLanguage(language: string) {
     this._translateService.setDefaultLang(language);
     this._translateService.use(language);
+    this._titleService.updateTitle(this._router.routerState.snapshot);
   }
 
   ngOnDestroy(): void {

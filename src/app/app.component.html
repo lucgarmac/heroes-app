@@ -1,10 +1,12 @@
-<main>
-  <app-toolbar></app-toolbar>
-  <section class="container">
-    <app-title-bar></app-title-bar>
-    <button (click)="openDialog()">Open dialog</button>
-    {{responseDialog}}
-    <router-outlet />
-  </section>
-  <app-footer></app-footer>
-</main>
+<div class="background">
+  <main>
+    <app-toolbar></app-toolbar>
+    <section>
+      <div class="container">
+        <app-title-bar></app-title-bar>
+        <router-outlet />
+      </div>
+    </section>
+    <app-footer></app-footer>
+  </main>
+</div>

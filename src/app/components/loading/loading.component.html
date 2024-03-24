@@ -2,8 +2,8 @@
   <div class="loading_wrapper">
 
     <div class="loading_wrapper_spinner">
-        @if(message) {
-          <h4 class="loading_message">{{message}}</h4>
+        @if(messageKey) {
+          <h4 class="loading_message">{{messageKey | translate}}</h4>
         }
         <mat-spinner
           [diameter]="50">

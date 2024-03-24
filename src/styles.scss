@@ -10,6 +10,13 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
 
 /*********************************************
 *******Angular material update styles*********

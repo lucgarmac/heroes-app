@@ -19,7 +19,7 @@ export class LoadingService {
 
     const component:ComponentPortal<LoadingComponent> = new ComponentPortal(LoadingComponent,null);
     const componentRef: ComponentRef<LoadingComponent> = this._overlayRef.attach(component);
-    componentRef.instance.message = message ?? '';
+    componentRef.instance.messageKey = message ?? '';
   }
 
   hide(){
