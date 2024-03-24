@@ -1,0 +1,16 @@
+.file-uploader {
+  background-color: rgba(143, 131, 131, 0.3);
+  border: 4px ridge rgba(71,88,184, 0.8);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: .25em;
+  max-height: 15rem;
+  min-height: 10rem;
+
+  mat-form-field {
+    min-width: 80%;
+  }
+}

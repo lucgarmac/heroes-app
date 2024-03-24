@@ -1,0 +1,40 @@
+<div class="file-uploader" appDragDrop (dataReceived)="onDataTransferReceived($event)">
+  <h4>{{ 'COMPONENTS.FILE_UPLOADER.TITLE' | translate}}</h4>
+
+
+  @if(fileSelected()) {
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="filename"
+        disabled="true">
+      <button
+        type="button"
+         mat-icon-button
+         matSuffix
+         (click)="onRemoveFile()"
+         [attr.aria-label]="">
+        <mat-icon>deleted</mat-icon>
+      </button>
+    </mat-form-field>
+  }
+
+  @if(messageError()) {
+    <h5 class="text-danger">{{messageError() | translate}}</h5>
+  }
+
+  <input
+    #inputFile
+    class="d-none"
+    type="file"
+    multiple="false"
+    accept=".jpg,.webp,.png"
+    (change)="onFileSelected($event)">
+  <button
+    type="button"
+    mat-raised-button
+    color="primary"
+    (click)="inputFile.click()">
+    {{'COMPONENTS.FILE_UPLOADER.BUTTON' | translate}}
+  </button>
+</div>
