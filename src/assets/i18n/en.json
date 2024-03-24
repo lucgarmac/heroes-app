@@ -1,0 +1,310 @@
+{
+  "ABOUT": {
+    "TEXT_1": "In Heroes App, we are committed to celebrating and recognizing human greatness in all its forms. Our mission is to provide an inclusive space where heroes from all walks of life can be honored and appreciated for their brave and selfless actions. We believe in the transformative power of inspiring stories and in the ability of each individual to make a significant difference in the world around us.",
+    "TEXT_2": "Our platform is more than just an app; it's a vibrant community of people who share the same passion for good and excellence. From heroes who have left an indelible mark on history to those who perform everyday acts of kindness, all are welcome here. We firmly believe that by recognizing and celebrating kindness and courage, we can inspire others to follow their example and build a brighter, more compassionate future for all.",
+    "TEXT_3": "At Heroes App, we value transparency, integrity, and mutual respect in all our interactions. We are committed to providing a safe and welcoming experience for all our users, where they can share their stories, connect with others, and find inspiration for their own heroic acts. Join us in our mission to celebrate heroes from around the world and make the world a better place, one hero at a time.",
+    "TITLE": "About"
+  },
+  "COMPONENTS": {
+    "FILE_UPLOADER": {
+      "BUTTON": "Search file",
+      "TITLE": "Drag a file or press the button 'Search file'",
+      "VALIDATIONS": {
+        "EXTENSION_NOT_ALLOWED": "File extension is not allowed.",
+        "FILE_EMPTY": "The file selected is empty.",
+        "FILE_NOT_SELECTED": "No file has been selected."
+      }
+    },
+    "FOOTER": {
+      "ALL_RIGHTS_RESERVED": "© 2024 All rights reserved.",
+      "MESSAGE_APP": "Discover, organize, and follow your favorite heroes with the Heroes Application."
+    },
+    "TABLE": {
+      "PAGINATION": {
+        "LABEL": "Select a page"
+      }
+    },
+    "TOOLBAR": {
+      "LANGUAGE": {
+        "ARIA_LABEL": "Language button",
+        "EN": "English",
+        "ES": "Spanish",
+        "TITLE": "Language"
+      },
+      "MENU": {
+        "TITLE": "Menu button"
+      },
+      "TITLE": "Heroes App"
+    }
+  },
+  "GENERAL": {
+    "ACTIONS": "Actions",
+    "ADD": {
+      "LABEL": "Add button",
+      "TITLE": "Add"
+    },
+    "APP": "Heroes App",
+    "CANCEL": {
+      "MODAL": {
+        "MESSAGE": "Are you sure you don't want to save the changes?",
+        "TITLE": "Exit without saving"
+      },
+      "TITLE": "Cancel"
+    },
+    "CLEAR": "Clear",
+    "CONFIRM": "Confirm",
+    "EYES_COLORS": {
+      "AMBER": "Amber",
+      "BLACK": "Black",
+      "BLUE": "Blue",
+      "BLUE_WHITE": "Blue/White",
+      "BROWN": "Brown",
+      "GOLD": "Gold",
+      "GREEN": "Green",
+      "GREEN_BLUE": "Green/Blue",
+      "GREY": "Grey",
+      "HAZEL": "Hazelnut",
+      "INDIGO": "Indigo",
+      "PURPLE": "Purple",
+      "RED": "Red",
+      "SILVER": "Silver",
+      "VIOLET": "Violet",
+      "WHITE": "White",
+      "WHITE_RED": "White/Red",
+      "YELLOW": "Yellow",
+      "YELLOW_BLUE": "Yellow/Blue",
+      "YELLOW_RED": "Yellow/Red",
+      "YELLOW_WITHOUT_IRISES": "Yellow (without iris)"
+    },
+    "GENDERS": {
+      "FEMALE": "Female",
+      "MALE": "Male",
+      "OTHER": "Other"
+    },
+    "HAIR_COLORS": {
+      "AUBURN": "Mahogany",
+      "BLACK": "Black",
+      "BLACK_BLUE": "Black/Blue",
+      "BLOND": "Blond",
+      "BLUE": "Blue",
+      "BROWN": "Chestnut",
+      "BROWN_BLACK": "Brown/Black",
+      "BROWN_WHITE": "Brown/White",
+      "GOLD": "Gold",
+      "GREEN": "Green",
+      "GREY": "Grey",
+      "INDIGO": "Indigo",
+      "MAGENTA": "Magenta",
+      "NO_HAIR": "Hairless",
+      "ORANGE": "Orange",
+      "ORANGE_WHITE": "Orange/White",
+      "PINK": "Pink",
+      "PURPLE": "Purple",
+      "RED": "Red",
+      "RED_ORANGE": "Red/Orange",
+      "RED_WHITE": "Red/White",
+      "SILVER": "Silver",
+      "STRAWBERRY_BLOND": "Strawberry Blonde",
+      "WHITE": "White",
+      "YELLOW": "Yellow"
+    },
+    "RACES": {
+      "ALIEN": "Alien",
+      "ALPHA": "Alpha",
+      "AMAZON": "Amazon",
+      "ANDROID": "Android",
+      "ANIMAL": "Animal",
+      "ASGARDIAN": "Asgardian",
+      "ATLANTEAN": "Atlantean",
+      "BIZARRO": "Bizarro",
+      "BLACK_RACER": "Black Racer",
+      "BOLOVAXIAN": "Bolovaxian",
+      "CLONE": "Clone",
+      "COSMIC_ENTITY": "Cosmic Entity",
+      "CYBORG": "Cyborg",
+      "CZARNIAN": "Czarnian",
+      "DATHOMIRIAN_ZABRAK": "Dathomirian Zabrak",
+      "DEMI_GOD": "Demi-God",
+      "DEMON": "Demon",
+      "ETERNAL": "Eternal",
+      "FLORA_COLOSSUS": "Flora Colossus",
+      "FROST_GIANT": "Frost Giant",
+      "GOD_ETERNAL": "God / Eternal",
+      "GORILLA": "Gorilla",
+      "GUNGAN": "Gungan",
+      "HUMAN": "Human",
+      "HUMAN_ALTERED": "Human / Altered",
+      "HUMAN_CLONE": "Human / Clone",
+      "HUMAN_COSMIC": "Human / Cosmic",
+      "HUMAN_KREE": "Human-Kree",
+      "HUMAN_RADIATION": "Human / Radiation",
+      "HUMAN_SPARTOI": "Human-Spartoi",
+      "HUMAN_VULCAN": "Human-Vulcan",
+      "HUMAN_VULDARIAN": "Human-Vuldarian",
+      "ICTHYO_SAPIEN": "Icthyo Sapien",
+      "INHUMAN": "Inhuman",
+      "KAIJU": "Kaiju",
+      "KAKARANTHARAIAN": "Kakarantharaian",
+      "KORUGARAN": "Korugaran",
+      "KRYPTONIAN": "Kryptonian",
+      "LUPHOMOID": "Luphomoid",
+      "MAIAR": "Maiar",
+      "MARTIAN": "Martian",
+      "METAHUMAN": "Metahuman",
+      "MUTANT": "Mutant",
+      "MUTANT_CLONE": "Mutant / Clone",
+      "NEW_GOD": "New God",
+      "NEYAPHEM": "Neyaphem",
+      "PARADEMON": "Parademon",
+      "RODIAN": "Rodian",
+      "SAIYAN": "Saiyan",
+      "SPARTOI": "Spartoi",
+      "STRONTIAN": "Strontian",
+      "SYMBIOTE": "Symbiote",
+      "TALOKITE": "Talokite",
+      "TAMARANEAN": "Tamaranean",
+      "UNGARAN": "Ungaran",
+      "VAMPIRE": "Vampire",
+      "XENOMORPH_XX121": "Xenomorph XX121",
+      "YAUTJA": "Yautja",
+      "YODAS_SPECIES": "Yoda's species",
+      "ZEN_WHOBERIAN": "Zen-Whoberian",
+      "ZOMBIE": "Zombie"
+    },
+    "REMOVE": {
+      "LABEL": "Remove button",
+      "TITLE": "Remove"
+    },
+    "SAVE": {
+      "MODAL": {
+        "MESSAGE": "Do you save changes?",
+        "TITLE": "Save changes"
+      },
+      "TITLE": "Save"
+    },
+    "VALIDATIONS": {
+      "REQUIRED": "The field is required"
+    }
+  },
+  "HEROES": {
+    "CREATE": {
+      "LOADING": "Creating heroe",
+      "MODAL": {
+        "MESSAGE": "Are you sure you want to create heroe?",
+        "TITLE": "Confirm creation heroe"
+      },
+      "RESPONSE": {
+        "KO": "An error has ocurred when heroe is creating. Try again more later.",
+        "OK": "The heroe has been created successfully."
+      },
+      "TITLE": "Heroe create"
+    },
+    "DELETE": {
+      "LOADING": "Deleting the hero",
+      "MESSAGE": "Are you sure you want remove the {{name}} heroe?",
+      "RESPONSE": {
+        "KO": "An error has ocurred when heroe is deleting. Try again more later.",
+        "OK": "The heroe has been removed successfully."
+      },
+      "TITLE": "Remove heroe"
+    },
+    "DETAIL": {
+      "TITLE": "Heroe detail"
+    },
+    "EDIT": {
+      "MODAL": {
+        "MESSAGE": "Are you sure you want update the heroe data with id {{id}}?",
+        "TITLE": "Confirm updating heroe"
+      },
+      "RESPONSE": {
+        "KO": "An error has ocurred when heroe is updating. Try again more later.",
+        "OK": "The heroe has been updated successfully."
+      },
+      "TITLE": "Heroe edit"
+    },
+    "HEROE": {
+      "APPEARANCE": {
+        "EYE_COLOR": "Eye colors",
+        "GENDER": "Gender",
+        "HAIR_COLOR": "Hair color",
+        "HEIGHT": "Height",
+        "RACE": "Race",
+        "TITLE": "Appearance",
+        "WEIGHT": "Weight"
+      },
+      "BIO": {
+        "ALIASES": {
+          "FIELD": "Alias",
+          "TITLE": "Alias list"
+        },
+        "ALIGNMENT": "Alignment",
+        "ALTER_EGOS": "Alter egos",
+        "FIRST_APPEARANCE": "First appearance",
+        "FULL_NAME": "Full name",
+        "PLACE_BIRTH": "Place of birth",
+        "PUBLISHER": "Publisher",
+        "TITLE": "Biography"
+      },
+      "ID": "ID",
+      "IMAGE": {
+        "LABEL": "Heroe image"
+      },
+      "NAME": "Name",
+      "POWERSTATS": {
+        "COMBAT": "Combat",
+        "DURABILITY": "Durability",
+        "INTELLIGENCE": "Intellingence",
+        "POWER": "Power",
+        "SPEED": "Speed",
+        "STRENGTH": "Strength",
+        "TITLE": "Powerstats"
+      },
+      "WORK": {
+        "BASE": "Base",
+        "OCCUPATION": "Occupation",
+        "TITLE": "Work"
+      }
+    },
+    "SEARCH": {
+      "ACTIONS": {
+        "CREATE": {
+          "LABEL": "Button to create heroe",
+          "TITLE": "New"
+        },
+        "DELETE": {
+          "LABEL": "Button to delete heroe",
+          "TITLE": "Delete"
+        },
+        "EDIT": {
+          "LABEL": "Button to edit heroe",
+          "TITLE": "Edit"
+        }
+      },
+      "FILTER": {
+        "NAME": "Heroe name"
+      },
+      "LOADING": "Searching heroes",
+      "TABLE": {
+        "ID": "ID",
+        "NAME": "Name",
+        "TITLE": "Search result"
+      },
+      "TITLE": "Search heroes"
+    }
+  },
+  "HOME": {
+    "TEXT_1": "Welcome to Heroes App!",
+    "TEXT_2": "Dive into a world where heroes are more than mere characters in stories. With Heroes App, you too can be part of the heroic narrative. From world leaders to altruistic neighbors, our app celebrates those who make the world a better place.",
+    "TEXT_3": "Explore detailed profiles, uncover the incredible stories behind each hero, and join a community dedicated to recognizing and honoring sacrifice, courage, and kindness. Whether you seek inspiration or want to share your own heroic experiences, Heroes App is your ultimate platform to connect with those who share your passion for altruism and positive change.",
+    "TEXT_4": "Download Heroes App today and join a global community of individuals who defy the ordinary and prove that we all have the power to make a difference. Together, we can inspire, motivate, and transform the world. Join us and discover the hero within you!",
+    "TITLE": "Home"
+  },
+  "NOT_FOUND": {
+    "TEXT_1": "The page you are trying to access is not available.",
+    "TITLE": "404 NOT FOUND"
+  },
+  "RESULTS_NOT_FOUND": {
+    "LABEL": "Not found image",
+    "TITLE": "No results found"
+  }
+}

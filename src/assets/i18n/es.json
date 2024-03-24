@@ -1,0 +1,310 @@
+{
+  "ABOUT": {
+    "TEXT_1": "En Heroes App, estamos comprometidos con la celebración y el reconocimiento de la grandeza humana en todas sus formas. Nuestra misión es proporcionar un espacio inclusivo donde los héroes de todos los ámbitos de la vida puedan ser honrados y apreciados por sus acciones valientes y altruistas. Creemos en el poder transformador de las historias inspiradoras y en la capacidad de cada individuo para marcar una diferencia significativa en el mundo que nos rodea.",
+    "TEXT_2": "Nuestra plataforma es más que una simple aplicación; es una comunidad vibrante de personas que comparten la misma pasión por el bien y la excelencia. Desde los héroes que han dejado una huella imborrable en la historia hasta aquellos que realizan actos de bondad cotidianos, todos son bienvenidos aquí. Creemos firmemente que al reconocer y celebrar la bondad y el coraje, podemos inspirar a otros a seguir su ejemplo y construir un futuro más brillante y compasivo para todos.",
+    "TEXT_3": "En Heroes App, valoramos la transparencia, la integridad y el respeto mutuo en todas nuestras interacciones. Estamos comprometidos a proporcionar una experiencia segura y acogedora para todos nuestros usuarios, donde puedan compartir sus historias, conectarse con otros y encontrar inspiración para sus propios actos heroicos. Únete a nosotros en nuestra misión de celebrar a los héroes de todo el mundo y hacer del mundo un lugar mejor, un héroe a la vez.",
+    "TITLE": "Acerca de"
+  },
+  "COMPONENTS": {
+    "FILE_UPLOADER": {
+      "BUTTON": "Buscar fichero",
+      "TITLE": "Arrastre un archivo o pulse el botón 'Buscar fichero'",
+      "VALIDATIONS": {
+        "EXTENSION_NOT_ALLOWED": "Extensión del fichero no permitida.",
+        "FILE_EMPTY": "El fichero seleccionado está vacío.",
+        "FILE_NOT_SELECTED": "No se ha seleccionado ningún fichero."
+      }
+    },
+    "FOOTER": {
+      "ALL_RIGHTS_RESERVED": "© 2024 Todos los derechos reservados.",
+      "MESSAGE_APP": "Descubre, organiza y sigue a tus héroes favoritos con la Aplicación de Héroes."
+    },
+    "TABLE": {
+      "PAGINATION": {
+        "LABEL": "Selecciona una página"
+      }
+    },
+    "TOOLBAR": {
+      "LANGUAGE": {
+        "ARIA_LABEL": "Botón de idioma",
+        "EN": "Inglés",
+        "ES": "Español",
+        "TITLE": "Idioma"
+      },
+      "MENU": {
+        "TITLE": "Botón del menú"
+      },
+      "TITLE": "Aplicación de héroes"
+    }
+  },
+  "GENERAL": {
+    "ACTIONS": "Acciones",
+    "ADD": {
+      "LABEL": "Botón de añadir",
+      "TITLE": "Añadir"
+    },
+    "APP": "Aplicación de héroes",
+    "CANCEL": {
+      "MODAL": {
+        "MESSAGE": "¿Está seguro que no quiere guardar los cambios?",
+        "TITLE": "Salir sin guardar"
+      },
+      "TITLE": "Cancelar"
+    },
+    "CLEAR": "Limpiar",
+    "CONFIRM": "Confirmar",
+    "EYES_COLORS": {
+      "AMBER": "Ámbar",
+      "BLACK": "Negro",
+      "BLUE": "Azul",
+      "BLUE_WHITE": "Azul/Blanco",
+      "BROWN": "Marrón",
+      "GOLD": "Oro",
+      "GREEN": "Verde",
+      "GREEN_BLUE": "Verde/Azul",
+      "GREY": "Gris",
+      "HAZEL": "Avellana",
+      "INDIGO": "Índigo",
+      "PURPLE": "Púrpura",
+      "RED": "Rojo",
+      "SILVER": "Plata",
+      "VIOLET": "Violeta",
+      "WHITE": "Blanco",
+      "WHITE_RED": "Blanco/Rojo",
+      "YELLOW": "Amarillo",
+      "YELLOW_BLUE": "Amarillo/Azul",
+      "YELLOW_RED": "Amarillo/Rojo",
+      "YELLOW_WITHOUT_IRISES": "Amarillo (sin iris)"
+    },
+    "GENDERS": {
+      "FEMALE": "Mujer",
+      "MALE": "Hombre",
+      "OTHER": "Otros"
+    },
+    "HAIR_COLORS": {
+      "AUBURN": "Caoba",
+      "BLACK": "Negro",
+      "BLACK_BLUE": "Negro/Azul",
+      "BLOND": "Rubio",
+      "BLUE": "Azul",
+      "BROWN": "Castaño",
+      "BROWN_BLACK": "Marrón/Negro",
+      "BROWN_WHITE": "Marrón/Blanco",
+      "GOLD": "Dorado",
+      "GREEN": "Verde",
+      "GREY": "Gris",
+      "INDIGO": "Añil",
+      "MAGENTA": "Magenta",
+      "NO_HAIR": "Sin pelo",
+      "ORANGE": "Naranja",
+      "ORANGE_WHITE": "Naranja/Blanco",
+      "PINK": "Rosa",
+      "PURPLE": "Morado",
+      "RED": "Rojo",
+      "RED_ORANGE": "Rojo/Naranja",
+      "RED_WHITE": "Rojo/Blanco",
+      "SILVER": "Plata",
+      "STRAWBERRY_BLOND": "Rubio Fresa",
+      "WHITE": "Blanco",
+      "YELLOW": "Amarillo"
+    },
+    "RACES": {
+      "ALIEN": "Alienígena",
+      "ALPHA": "Alfa",
+      "AMAZON": "Amazona",
+      "ANDROID": "Androide",
+      "ANIMAL": "Animal",
+      "ASGARDIAN": "Asgardiano",
+      "ATLANTEAN": "Atlante",
+      "BIZARRO": "Bizarro",
+      "BLACK_RACER": "Racer Negro",
+      "BOLOVAXIAN": "Bolovaxiano",
+      "CLONE": "Clon",
+      "COSMIC_ENTITY": "Entidad Cósmica",
+      "CYBORG": "Cyborg",
+      "CZARNIAN": "Zarniano",
+      "DATHOMIRIAN_ZABRAK": "Dathomirian Zabrak",
+      "DEMI_GOD": "Demi-Dios",
+      "DEMON": "Demonio",
+      "ETERNAL": "Eterno",
+      "FLORA_COLOSSUS": "Flora Colossus",
+      "FROST_GIANT": "Gigante de Escarcha",
+      "GOD_ETERNAL": "Dios / Eterno",
+      "GORILLA": "Gorila",
+      "GUNGAN": "Gungan",
+      "HUMAN": "Humano",
+      "HUMAN_ALTERED": "Humano / Alterado",
+      "HUMAN_CLONE": "Humano / Clon",
+      "HUMAN_COSMIC": "Humano / Cósmico",
+      "HUMAN_KREE": "Humano-Kree",
+      "HUMAN_RADIATION": "Humano / Radiación",
+      "HUMAN_SPARTOI": "Humano-espartano",
+      "HUMAN_VULCAN": "Humano-Vulcano",
+      "HUMAN_VULDARIAN": "Humano-vuldariano",
+      "ICTHYO_SAPIEN": "Icthyo Sapien",
+      "INHUMAN": "Inhumano",
+      "KAIJU": "Kaiju",
+      "KAKARANTHARAIAN": "Kakarantharaian",
+      "KORUGARAN": "Korugaran",
+      "KRYPTONIAN": "Kriptoniano",
+      "LUPHOMOID": "Luphomoid",
+      "MAIAR": "Maiar",
+      "MARTIAN": "Marciano",
+      "METAHUMAN": "Metahumano",
+      "MUTANT": "Mutante",
+      "MUTANT_CLONE": "Mutante / Clon",
+      "NEW_GOD": "Nuevo Dios",
+      "NEYAPHEM": "Neyaphem",
+      "PARADEMON": "Parademon",
+      "RODIAN": "Rodiano",
+      "SAIYAN": "Saiyan",
+      "SPARTOI": "Spartoi",
+      "STRONTIAN": "Strontian",
+      "SYMBIOTE": "Simbionte",
+      "TALOKITE": "Talokita",
+      "TAMARANEAN": "Tamarano",
+      "UNGARAN": "Ungaran",
+      "VAMPIRE": "Vampiro",
+      "XENOMORPH_XX121": "Xenomorfo XX121",
+      "YAUTJA": "Yautja",
+      "YODAS_SPECIES": "Especie de Yoda",
+      "ZEN_WHOBERIAN": "Zen-Whoberiano",
+      "ZOMBIE": "Zombi"
+    },
+    "REMOVE": {
+      "LABEL": "Botón de borrado",
+      "TITLE": "Eliminar"
+    },
+    "SAVE": {
+      "MODAL": {
+        "MESSAGE": "¿Desea guardar los cambios?",
+        "TITLE": "Guardar cambios"
+      },
+      "TITLE": "Guardar"
+    },
+    "VALIDATIONS": {
+      "REQUIRED": "El campo es obligatorio"
+    }
+  },
+  "HEROES": {
+    "CREATE": {
+      "LOADING": "Creando el héroe",
+      "MODAL": {
+        "MESSAGE": "¿Está seguro que desea crear el heroe?",
+        "TITLE": "Confirmar creación del heroe"
+      },
+      "RESPONSE": {
+        "KO": "Se ha producido un error al crear el héroe. Inténtelo de nuevo más tarde.",
+        "OK": "El héroe se ha creado correctamente."
+      },
+      "TITLE": "Crear héroe"
+    },
+    "DELETE": {
+      "LOADING": "Borrando el héroe",
+      "MESSAGE": "¿Está seguro que desea eliminar al heroe {{name}}?",
+      "RESPONSE": {
+        "KO": "Se ha producido un error al borrar el héroe. Inténtelo de nuevo más tarde.",
+        "OK": "El héroe se ha eliminado correctamente."
+      },
+      "TITLE": "Eliminar héroe"
+    },
+    "DETAIL": {
+      "TITLE": "Detalle del héroe"
+    },
+    "EDIT": {
+      "MODAL": {
+        "MESSAGE": "¿Está seguro que desea actualizar los datos del heroe con id {{id}}?",
+        "TITLE": "Confirmar actualizacón del heroe"
+      },
+      "RESPONSE": {
+        "KO": "Se ha producido un error al actualizar el héroe. Inténtelo de nuevo más tarde.",
+        "OK": "El héroe se ha actualizado correctamente."
+      },
+      "TITLE": "Editar héroe"
+    },
+    "HEROE": {
+      "APPEARANCE": {
+        "EYE_COLOR": "Color de ojos",
+        "GENDER": "Sexo",
+        "HAIR_COLOR": "Color de pelo",
+        "HEIGHT": "Altura",
+        "RACE": "Raza",
+        "TITLE": "Apariencia",
+        "WEIGHT": "Peso"
+      },
+      "BIO": {
+        "ALIASES": {
+          "FIELD": "Alias",
+          "TITLE": "Lista de alias"
+        },
+        "ALIGNMENT": "Alineación",
+        "ALTER_EGOS": "Alter egos",
+        "FIRST_APPEARANCE": "Primera aparición",
+        "FULL_NAME": "Nombre completo",
+        "PLACE_BIRTH": "Lugar de nacimiento",
+        "PUBLISHER": "Edición",
+        "TITLE": "Biografía"
+      },
+      "ID": "ID",
+      "IMAGE": {
+        "LABEL": "Imagen del héroe"
+      },
+      "NAME": "Nombre",
+      "POWERSTATS": {
+        "COMBAT": "Técnica",
+        "DURABILITY": "Resistencia",
+        "INTELLIGENCE": "Inteligencia",
+        "POWER": "Poder",
+        "SPEED": "Velocidad",
+        "STRENGTH": "Fuerza",
+        "TITLE": "Estadísticas"
+      },
+      "WORK": {
+        "BASE": "Base",
+        "OCCUPATION": "Profesión",
+        "TITLE": "Trabajo"
+      }
+    },
+    "SEARCH": {
+      "ACTIONS": {
+        "CREATE": {
+          "LABEL": "Botón para crear un héroe",
+          "TITLE": "Nuevo"
+        },
+        "DELETE": {
+          "LABEL": "Botón para eliminar un héroe",
+          "TITLE": "Eliminar"
+        },
+        "EDIT": {
+          "LABEL": "Botón para editar un héroe",
+          "TITLE": "Editar"
+        }
+      },
+      "FILTER": {
+        "NAME": "Nombre del héroe"
+      },
+      "LOADING": "Buscando héroes",
+      "TABLE": {
+        "ID": "ID",
+        "NAME": "Nombre",
+        "TITLE": "Resultados de la búsqueda"
+      },
+      "TITLE": "Buscar héroes"
+    }
+  },
+  "HOME": {
+    "TEXT_1": "¡Bienvenido a Heroes App!",
+    "TEXT_2": "Sumérgete en un mundo donde los héroes son más que simples personajes de historias. Con Heroes App, tú también puedes ser parte de la narrativa heroica. Desde líderes mundiales hasta vecinos altruistas, nuestra aplicación celebra a aquellos que hacen del mundo un lugar mejor.",
+    "TEXT_3": "Explora perfiles detallados, descubre las increíbles historias detrás de cada héroe y únete a una comunidad dedicada a reconocer y honrar el sacrificio, el coraje y la bondad. Ya sea que busques inspiración o quieras compartir tus propias experiencias heroicas, Heroes App es tu plataforma definitiva para conectarte con aquellos que comparten tu pasión por el altruismo y el cambio positivo.",
+    "TEXT_4": "Descarga Heroes App hoy y únete a una comunidad global de individuos que desafían lo ordinario y demuestran que todos tenemos el poder de marcar la diferencia. Juntos, podemos inspirar, motivar y transformar el mundo. ¡Únete a nosotros y descubre el héroe que llevas dentro!",
+    "TITLE": "Inicio"
+  },
+  "NOT_FOUND": {
+    "TEXT_1": "La página a la que intentas acceder no está disponible",
+    "TITLE": "404 NO ENCONTRADO"
+  },
+  "RESULTS_NOT_FOUND": {
+    "LABEL": "Imagen no encontrado",
+    "TITLE": "No se han encontrado resultados"
+  }
+}

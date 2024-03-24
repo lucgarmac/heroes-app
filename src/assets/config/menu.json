@@ -1,0 +1,14 @@
+[
+  {
+    "path": "/home",
+    "label": "HOME.TITLE"
+  },
+  {
+    "path": "/heroes/search",
+    "label": "HEROES.SEARCH.TITLE"
+  },
+  {
+    "path": "/about",
+    "label": "ABOUT.TITLE"
+  }
+]

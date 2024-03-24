@@ -1,0 +1,10 @@
+[
+  {
+    "localeId": "es",
+    "label": "COMPONENTS.TOOLBAR.LANGUAGE.ES"
+  },
+  {
+    "localeId": "en",
+    "label": "COMPONENTS.TOOLBAR.LANGUAGE.EN"
+  }
+]
