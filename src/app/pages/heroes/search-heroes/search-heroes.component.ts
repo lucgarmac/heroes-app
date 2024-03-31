@@ -92,26 +92,6 @@ export class SearchHeroesComponent implements OnInit, OnDestroy{
     this.pagination = this._defaultPagination;
   }
 
-  onOpenDeleteHeroeModal(heroe: IHeroeSearch) {
-    const dialogRef:DialogRef<any,any> = this._dialog.open<string>(ConfirmModalComponent, {
-      disableClose: true,
-      data: {
-        title: 'HEROES.DELETE.TITLE',
-        message: 'HEROES.DELETE.MESSAGE',
-        messageParams: {
-          name: heroe.name
-        },
-        confirmText: 'GENERAL.CONFIRM'
-      },
-    });
-
-    dialogRef.componentInstance.closeModal
-      .pipe(takeUntil(this._stopObservables$))
-      .subscribe( (_:void) => {
-        this._confirmDelete(heroe.id.toString());
-      });
-  }
-
   private _confirmDelete(heroeId: string) {
     this._loadingService.show('HEROES.DELETE.LOADING');
     this._heroeService.deleteHeroe(heroeId)
@@ -152,6 +132,26 @@ export class SearchHeroesComponent implements OnInit, OnDestroy{
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.heroes = response;
+  }
+
+  onOpenDeleteHeroeModal(heroe: IHeroeSearch) {
+    const dialogRef:DialogRef<any,any> = this._dialog.open<string>(ConfirmModalComponent, {
+      disableClose: true,
+      data: {
+        title: 'HEROES.DELETE.TITLE',
+        message: 'HEROES.DELETE.MESSAGE',
+        messageParams: {
+          name: heroe.name
+        },
+        confirmText: 'GENERAL.CONFIRM'
+      },
+    });
+
+    dialogRef.componentInstance.closeModal
+      .pipe(takeUntil(this._stopObservables$))
+      .subscribe( (_:void) => {
+        this._confirmDelete(heroe.id.toString());
+      });
   }
 
   onChangeName(name: string) {

@@ -10,7 +10,7 @@ export interface IPowerstatsForm {
 export interface IBioForm {
   fullName: string;
   alterEgos: string;
-  placeBirth: string;
+  placeOfBirth: string;
   firstAppearance: string;
   publisher: string;
   alignment: string;

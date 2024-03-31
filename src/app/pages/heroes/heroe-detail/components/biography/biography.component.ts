@@ -1,3 +1,4 @@
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import {
@@ -40,6 +41,7 @@ import { EFormMode } from '../../../../../models/form';
     MatIconModule,
     MatDividerModule,
     MatListModule,
+    MatTooltipModule
   ],
   providers: [
     {

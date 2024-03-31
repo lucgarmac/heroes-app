@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -9,7 +9,6 @@ describe('AppComponent', () => {
         AppComponent,
         TranslateModule.forRoot()
       ],
-      providers: [TranslateService]
     }).compileComponents();
   });
 

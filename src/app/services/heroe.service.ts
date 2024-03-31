@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
-import { Observable, catchError, delay, filter, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, map, of, tap } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { ENotificationType } from '../components/notification/models/notification';
 import { NotificationService } from '../components/notification/services/notification.service';
+import { IHeroeDetail, IHeroePostRequest, IHeroeSearch, IPatchRequest } from '../models/heroe';
 import { HttpService } from './http.service';
-import { IHeroeDetail, IHeroeSearch, EHeroeProperty, IHeroePostRequest, IPatchRequest } from '../models/heroe';
 
 @Injectable({
   providedIn: 'root',
@@ -56,7 +56,7 @@ export class HeroeService {
       );
     }
 
-    return this._httpClient.get<IHeroeSearch[]>(`${this._baseUrl}/search`, {
+    return this._httpClient.get<IHeroeSearch[]>(`${this._baseUrl}`, {
       params: this._httpService.parseToHttpParams({ name }),
     });
   }

@@ -15,12 +15,13 @@
   </div>
   <div class="confirm-modal_footer">
     <button
-      class="me-3"
+      class="cancel-button me-3"
       mat-raised-button
       (click)="dialogRef.close('close')">
       {{ cancelText() | translate}}
     </button>
     <button
+      class="confirm-button"
       mat-raised-button
       color="primary"
       (click)="closeModal.emit()"

@@ -13,7 +13,6 @@ export class SecureUrlPipe implements PipeTransform {
     if(!url) {
       return '';
     }
-
     return this._domSanitize.bypassSecurityTrustUrl(url);
   }
 

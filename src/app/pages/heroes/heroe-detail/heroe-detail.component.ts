@@ -1,5 +1,4 @@
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {
   Component,
   Input,
@@ -14,12 +13,13 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { Subject, map, of, takeUntil } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { ConfirmModalComponent } from '../../../components/confirm-modal/confirm-modal.component';
 import { FileUploaderModule } from '../../../components/file-uploader/file-uploader.module';
 import { LoadingService } from '../../../components/loading/services/loading.service';
@@ -48,7 +48,6 @@ import { PowerstatsComponent } from './components/powerstats/powerstats.componen
     MatInputModule,
     MatTabsModule,
     MatButtonModule,
-    MatDialogModule,
     FileUploaderModule,
     AppearanceComponent,
     BiographyComponent,
@@ -64,7 +63,6 @@ export class HeroeDetailComponent implements OnInit {
     private _router: Router,
     private _builder: FormBuilder,
     private _dialog: Dialog,
-    private _matDialog: MatDialog,
     private _heroeService: HeroeService,
     private _loadingService: LoadingService
   ) {}
@@ -128,7 +126,6 @@ export class HeroeDetailComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe((val) => {
-      // console.log(val);
       this._getHeroeChanges();
     });
   }

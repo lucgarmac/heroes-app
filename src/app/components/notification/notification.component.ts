@@ -2,7 +2,6 @@ import {
   Component,
   Inject,
   WritableSignal,
-  inject,
   signal
 } from '@angular/core';
 import {
@@ -22,14 +21,14 @@ import { ENotificationType } from './models/notification';
   styleUrl: './notification.component.scss',
 })
 export class NotificationComponent {
-  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) {
+  constructor(
+    @Inject(MAT_SNACK_BAR_DATA) public data: any,
+    public matSnackBarRef: MatSnackBarRef<NotificationComponent>) {
     this._updateData(data);
   }
   message: WritableSignal<string> = signal('');
   classNotification: WritableSignal<string> = signal('notification');
   notificationTypeEnum = ENotificationType;
-
-  snackBarRef = inject(MatSnackBarRef);
 
   private _updateData(data: any) {
     this.message.set(data.message);

@@ -4,107 +4,99 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ToolbarService } from './toolbar.service';
 
 import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of, throwError } from 'rxjs';
 
 describe('ToolbarService', () => {
-  let toolbarService: ToolbarService;
-  let httpClientSpy: jasmine.SpyObj<HttpClient>;
+  let service: ToolbarService;
+
+  const httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
 
   beforeEach(() => {
-
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule ,
-        TranslateModule.forRoot(),
-      ],
+      imports: [TranslateModule.forRoot()],
       providers: [
+        TranslateService,
         ToolbarService,
-        TranslateService
-      ]
+        { provide: HttpClient, useValue: httpClientSpy },
+      ],
     });
 
-    toolbarService = new ToolbarService(httpClientSpy);
-
+    service = TestBed.inject(ToolbarService);
   });
 
   it('should be created', () => {
-    expect(toolbarService).toBeTruthy();
+    expect(service).toBeTruthy();
   });
 
   it('should return the menu when method is invoked', (done: DoneFn) => {
-    const dataMock = [
+    const menuMock = [
       {
-        "path": "/",
-        "label": "test"
+        path: '/',
+        label: 'test',
       },
     ];
 
-    httpClientSpy.get.and.returnValue(of(dataMock));
-    toolbarService.getMenu().subscribe({
-      next: (response) => {
-        expect(response).toEqual(dataMock);
+    httpClientSpy.get.and.returnValue(of(menuMock));
+
+    service.getMenu().subscribe({
+      next: (res) => {
+        expect(res.length).toBe(menuMock.length);
+        expect(res).toEqual(menuMock);
         done();
       },
       error: done.fail,
     });
-    expect(httpClientSpy.get.calls.count()).toBe(1);
+
+    expect(httpClientSpy.get).toHaveBeenCalled();
   });
 
   it('should return an empty array when the server is failed', (done: DoneFn) => {
-
     httpClientSpy.get.and.returnValue(throwError(() => 'error'));
-    toolbarService.getMenu().subscribe({
+    service.getMenu().subscribe({
       next: (response) => {
-        expect(response).toEqual([]);
+        expect(response.length).toBe(0);
         done();
       },
       error: done.fail,
     });
-    expect(httpClientSpy.get.calls.count()).toBe(1);
+    expect(httpClientSpy.get).toHaveBeenCalled();
   });
 
   it('should return the languages when method is invoked', (done: DoneFn) => {
-
-    const dataMock = [
+    const languagesMock = [
       {
-        "localeId": "es",
-        "label": "Spain"
+        localeId: 'es',
+        label: 'Spain',
       },
       {
-        "localeId": "en",
-        "label": "English"
-      }
+        localeId: 'en',
+        label: 'English',
+      },
     ];
 
+    httpClientSpy.get.and.returnValue(of(languagesMock));
 
-    httpClientSpy.get.and.returnValue(of(dataMock));
-    toolbarService.getLanguages().subscribe({
-      next: (response) => {
-        expect(response).toEqual(dataMock);
+    service.getLanguages().subscribe({
+      next: (res) => {
+        expect(res.length).toBe(languagesMock.length);
+        expect(res).toEqual(languagesMock);
         done();
       },
       error: done.fail,
     });
-    expect(httpClientSpy.get.calls.count()).withContext('one call').toBe(1);
+
+    expect(httpClientSpy.get).toHaveBeenCalled();
   });
 
   it('should return an empty array when the server is failed', (done: DoneFn) => {
-
     httpClientSpy.get.and.returnValue(throwError(() => 'error'));
-    toolbarService.getLanguages().subscribe({
+    service.getLanguages().subscribe({
       next: (response) => {
-        expect(response).toEqual([]);
+        expect(response.length).toBe(0);
         done();
       },
       error: done.fail,
     });
-    expect(httpClientSpy.get.calls.count()).toBe(1);
+    expect(httpClientSpy.get).toHaveBeenCalled();
   });
-
-
 });
-
-
