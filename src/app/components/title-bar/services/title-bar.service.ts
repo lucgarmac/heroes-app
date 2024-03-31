@@ -13,8 +13,10 @@ export class TitleBarService {
   constructor(private _activatedRoute: ActivatedRoute){}
 
   private _paramsTitleSubject$ = new Subject<IParams>();
+  private _isValidUrlSubject$ = new Subject<boolean>();
 
   paramsTitle$ = this._paramsTitleSubject$.asObservable();
+  isValidUrl$ = this._isValidUrlSubject$.asObservable();
 
   private _getParams(activatedRoute: ActivatedRoute): Params | null {
     const params = activatedRoute.snapshot.params;
@@ -76,6 +78,10 @@ export class TitleBarService {
 
   setParamsTitle(params: IParams) {
     this._paramsTitleSubject$.next(params);
+  }
+
+  setIsValidUrl(isValid: boolean) {
+    this._isValidUrlSubject$.next(isValid);
   }
 
   isUrlWithReturn(

@@ -1,12 +1,10 @@
-<div class="background">
-  <main>
-    <app-toolbar></app-toolbar>
-    <section>
-      <div class="container">
-        <app-title-bar></app-title-bar>
-        <router-outlet />
-      </div>
-    </section>
-    <app-footer></app-footer>
-  </main>
-</div>
+<main [class.not-found]="isNotFoundPage()">
+  <app-toolbar></app-toolbar>
+  <section>
+    <div class="container">
+      <app-title-bar></app-title-bar>
+      <router-outlet />
+    </div>
+  </section>
+  <app-footer></app-footer>
+</main>

@@ -1,16 +1,28 @@
 main {
+  background-image: url('../assets/img/background.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  z-index: 2;
-  opacity: 1;
+  justify-content: space-between;
 
-  img {
-    min-height: 100vh;
+  section {
+    background-color:white;
+    opacity: 0.9;
+    min-height: 60%;
   }
+}
 
-  app-footer {
-    margin-top: auto;
+.not-found {
+  background: url('../assets/img/ironman-not-found.webp') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+
+  section {
+    background-color: transparent;
+    opacity: 1;
+    color: white;
   }
 }

@@ -1,11 +1,7 @@
 import { Component, OnDestroy, WritableSignal, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {
-  NavigationEnd,
-  Router,
-  RouterModule
-} from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { Subject, filter, map, takeUntil } from 'rxjs';
 import { IParams } from './../../models/params';
@@ -21,7 +17,7 @@ import { TitleBarService } from './services/title-bar.service';
 export class TitleBarComponent implements OnDestroy {
   constructor(
     private _router: Router,
-    private _titleBarService: TitleBarService,
+    private _titleBarService: TitleBarService
   ) {
     this._router.events
       .pipe(
@@ -33,11 +29,16 @@ export class TitleBarComponent implements OnDestroy {
         this.isVisibleReturn.set(
           this._titleBarService.isUrlWithReturn(e.url, e.urlAfterRedirects)
         );
-        this.title.set(this._titleBarService.getTitleKey(e.url, e.urlAfterRedirects));
+        this.title.set(
+          this._titleBarService.getTitleKey(e.url, e.urlAfterRedirects)
+        );
         this.routeNavigate.set(
           this._titleBarService.getRouteNavigate(e.url, e.urlAfterRedirects)
         );
 
+        this._titleBarService.setIsValidUrl(
+          !!this._titleBarService.getRouteCurrentUrl(e.url, e.urlAfterRedirects)
+        );
       });
 
     this._titleBarService.paramsTitle$.subscribe((params) =>
