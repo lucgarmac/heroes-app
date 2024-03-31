@@ -1,112 +1,113 @@
-<div class="heroe-detail">
-  <form [formGroup]="form" (submit)="onSaveChanges()">
-    @if(formMode() !== formModeEnum.DETAIL) {
-      <div class="row mb-4 justify-content-md-end">
-        <div class="col-6 col-md-2">
-          <button type="button" class="w-100" mat-raised-button
-          (click)="onCancel()">
-            {{ "GENERAL.CANCEL.TITLE" | translate }}
-          </button>
-        </div>
+@if (formMode() !== formModeEnum.CREATE && heroe || formMode() === formModeEnum.CREATE) {
+  <div class="heroe-detail">
+    <form [formGroup]="form" (submit)="onSaveChanges()">
+      @if(formMode() !== formModeEnum.DETAIL) {
+        <div class="row mb-4 justify-content-md-end">
+          <div class="col-6 col-md-2">
+            <button type="button" class="w-100" mat-raised-button
+            (click)="onCancel()">
+              {{ "GENERAL.CANCEL.TITLE" | translate }}
+            </button>
+          </div>
 
-        <div class="col-6 col-md-2">
-          <button
-            [disabled]="form.invalid || (formMode() === formModeEnum.EDIT && !heroeChanges?.length)"
-            class="w-100"
-            type="submit"
-            mat-raised-button
-            color="primary"
-          >
-            {{ "GENERAL.SAVE.TITLE" | translate }}
-          </button>
+          <div class="col-6 col-md-2">
+            <button
+              [disabled]="form.invalid || (formMode() === formModeEnum.EDIT && !heroeChanges?.length)"
+              class="w-100"
+              type="submit"
+              mat-raised-button
+              color="primary"
+            >
+              {{ "GENERAL.SAVE.TITLE" | translate }}
+            </button>
+          </div>
+        </div>
+      }
+
+      @if(formMode() === formModeEnum.DETAIL) {
+      <div class="row heroe-detail_basic-info">
+        <img
+          class="col-12 col-md-6 mb-4"
+          [src]="heroe?.images?.md | secureUrl"
+          [alt]="'HEROES.HEROE.IMAGE.LABEL' | translate"
+        />
+
+        <div class="col-md-6 d-flex flex-column">
+          <mat-form-field>
+            <mat-label>{{ "HEROES.HEROE.ID" | translate }}</mat-label>
+            <input name="id" formControlName="id" matInput />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>{{ "HEROES.HEROE.NAME" | translate }}</mat-label>
+            <input name="name" formControlName="name" matInput />
+          </mat-form-field>
         </div>
       </div>
-    }
+      } @else {
+      <div class="row heroe-detail_basic-info">
+        @if(fileUpload()) {
+        <img
+          class="mb-4"
+          [src]="fileUpload() | objectUrl | secureUrl"
+          [alt]="'HEROES.HEROE.IMAGE.LABEL' | translate"
+        />
+        }
+        <div class="col-12 mb-4" [class.col-md-8]="fileUpload()">
+          <app-file-uploader (fileUpload)="onFileUploadChange($event)">
+          </app-file-uploader>
+        </div>
 
-    @if(formMode() === formModeEnum.DETAIL) {
-    <div class="row heroe-detail_basic-info">
-      <img
-        class="col-12 col-md-6 mb-4"
-        [src]="heroe?.images?.md | secureUrl"
-        [alt]="'HEROES.HEROE.IMAGE.LABEL' | translate"
-      />
+        @if(formMode() === formModeEnum.EDIT) {
+          <mat-form-field class="col-12 col-md-6 col-xxl-4">
+            <mat-label>{{ "HEROES.HEROE.ID" | translate }}</mat-label>
+            <input name="id" formControlName="id" matInput />
+          </mat-form-field>
+        }
 
-      <div class="col-md-6 d-flex flex-column">
-        <mat-form-field>
-          <mat-label>{{ "HEROES.HEROE.ID" | translate }}</mat-label>
-          <input name="id" formControlName="id" matInput />
-        </mat-form-field>
-
-        <mat-form-field>
+        <mat-form-field class="col-12 col-md-6 col-xxl-4">
           <mat-label>{{ "HEROES.HEROE.NAME" | translate }}</mat-label>
           <input name="name" formControlName="name" matInput />
+          @if (form.controls.name.invalid) {
+            <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
+          }
         </mat-form-field>
       </div>
-    </div>
-    } @else {
-    <div class="row heroe-detail_basic-info">
-      @if(fileUpload()) {
-      <img
-        class="mb-4"
-        [src]="fileUpload() | objectUrl | secureUrl"
-        [alt]="'HEROES.HEROE.IMAGE.LABEL' | translate"
-      />
-      }
-      <div class="col-12 mb-4" [class.col-md-8]="fileUpload()">
-        <app-file-uploader (fileUpload)="onFileUploadChange($event)">
-        </app-file-uploader>
-      </div>
-
-      @if(formMode() === formModeEnum.EDIT) {
-        <mat-form-field class="col-12 col-md-6 col-xxl-4">
-          <mat-label>{{ "HEROES.HEROE.ID" | translate }}</mat-label>
-          <input name="id" formControlName="id" matInput />
-        </mat-form-field>
       }
 
-      <mat-form-field class="col-12 col-md-6 col-xxl-4">
-        <mat-label>{{ "HEROES.HEROE.NAME" | translate }}</mat-label>
-        <input name="name" formControlName="name" matInput />
-        @if (form.controls.name.invalid) {
-          <mat-error>{{'GENERAL.VALIDATIONS.REQUIRED' |  translate}}</mat-error>
-        }
-      </mat-form-field>
-    </div>
-    }
-
-    <mat-tab-group dynamicHeight>
-      @for(tab of tabs; track tab.id) {
-      <mat-tab [label]="tab.labelKey | translate">
-        <div class="my-4">
-          @switch (tab.id) { @case(heroePropertyEnum.POWERSTATS) {
-          <app-heroe-powerstats [mode]="formMode()" formControlName="powerstats">
-          </app-heroe-powerstats>
-          } @case(heroePropertyEnum.BIO) {
-          <app-heroe-biography [mode]="formMode()" formControlName="biography"> </app-heroe-biography>
-          } @case(heroePropertyEnum.APPEARANCE) {
-          <app-heroe-appearance [mode]="formMode()" formControlName="appearance">
-          </app-heroe-appearance>
-          } @case(heroePropertyEnum.WORK) {
-          <div class="heroe-work row">
-            <mat-form-field class="col-12 col-md-6">
-              <mat-label>{{
-                "HEROES.HEROE.WORK.OCCUPATION" | translate
-              }}</mat-label>
-              <input name="occupation" formControlName="occupation" matInput />
-            </mat-form-field>
-            <mat-form-field class="col-12 col-md-6">
-              <mat-label>{{ "HEROES.HEROE.WORK.BASE" | translate }}</mat-label>
-              <input name="base" formControlName="base" matInput />
-            </mat-form-field>
+      <mat-tab-group dynamicHeight>
+        @for(tab of tabs; track tab.id) {
+        <mat-tab [label]="tab.labelKey | translate">
+          <div class="my-4">
+            @switch (tab.id) { @case(heroePropertyEnum.POWERSTATS) {
+            <app-heroe-powerstats [mode]="formMode()" formControlName="powerstats">
+            </app-heroe-powerstats>
+            } @case(heroePropertyEnum.BIO) {
+            <app-heroe-biography [mode]="formMode()" formControlName="biography"> </app-heroe-biography>
+            } @case(heroePropertyEnum.APPEARANCE) {
+            <app-heroe-appearance [mode]="formMode()" formControlName="appearance">
+            </app-heroe-appearance>
+            } @case(heroePropertyEnum.WORK) {
+            <div class="heroe-work row">
+              <mat-form-field class="col-12 col-md-6">
+                <mat-label>{{
+                  "HEROES.HEROE.WORK.OCCUPATION" | translate
+                }}</mat-label>
+                <input name="occupation" formControlName="occupation" matInput />
+              </mat-form-field>
+              <mat-form-field class="col-12 col-md-6">
+                <mat-label>{{ "HEROES.HEROE.WORK.BASE" | translate }}</mat-label>
+                <input name="base" formControlName="base" matInput />
+              </mat-form-field>
+            </div>
+            } }
           </div>
-          } }
-        </div>
-      </mat-tab>
-      }
-    </mat-tab-group>
-  </form>
-</div>
-
+        </mat-tab>
+        }
+      </mat-tab-group>
+    </form>
+  </div>
+}
 
 @if(formMode() !== formModeEnum.CREATE && !heroe) {
   <div class="d-flex flex-column align-items-center">
